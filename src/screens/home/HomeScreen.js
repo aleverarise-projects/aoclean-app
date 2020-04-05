@@ -1,15 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { observer } from 'mobx-react';
 import {
-  Button,
-  List,
-  Title,
-  Card,
-  Paragraph,
-  IconButton,
-} from 'react-native-paper';
-import Store from '../../store/Store';
+  StyleSheet,
+  View,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
+import { observer } from 'mobx-react';
+import { Button, List, Title } from 'react-native-paper';
 import MiniServiceComponent from '../../components/services/MiniServiceComponent';
 import MiniProviderComponent from '../../components/providers/MiniProviderComponent';
 import FullProviderComponent from '../../components/providers/FullProviderComponent';
@@ -19,6 +17,7 @@ import FullProviderComponent from '../../components/providers/FullProviderCompon
 const HomeScreen = observer(() => {
   return (
     <SafeAreaView>
+      <StatusBar barStyle="light-content" />
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.header}>

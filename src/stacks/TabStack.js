@@ -1,8 +1,12 @@
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import HomeScreen from '../screens/home/HomeScreen';
+import NewRequestScreen from '../screens/NewRequestScreen';
 import { theme } from '../config/theme';
+import TabHomeStack from './stacks/TabHomeStack';
+import TabProfileStack from './stacks/TabProfileStack';
+import TabSearchStack from './stacks/TabSearchStack';
+import TabWalletStack from './stacks/TabWalletStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -11,7 +15,7 @@ function TabStack() {
     <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
         name="Wallet"
-        component={HomeScreen}
+        component={TabWalletStack}
         options={{
           tabBarLabel: 'Ganancias',
           tabBarColor: theme.colors.background2,
@@ -25,7 +29,7 @@ function TabStack() {
       />
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={TabHomeStack}
         options={{
           tabBarLabel: 'Home',
           tabBarColor: theme.colors.primary,
@@ -39,7 +43,7 @@ function TabStack() {
       />
       <Tab.Screen
         name="NewRequest"
-        component={HomeScreen}
+        component={NewRequestScreen}
         options={{
           tabBarLabel: 'Nuevo',
           tabBarColor: theme.colors.accent,
@@ -53,7 +57,7 @@ function TabStack() {
       />
       <Tab.Screen
         name="Search"
-        component={HomeScreen}
+        component={TabSearchStack}
         options={{
           tabBarLabel: 'Busqueda',
           tabBarColor: theme.colors.background4,
@@ -67,7 +71,7 @@ function TabStack() {
       />
       <Tab.Screen
         name="Profile"
-        component={HomeScreen}
+        component={TabProfileStack}
         options={{
           tabBarLabel: 'Perfil',
           tabBarColor: theme.colors.background5,
