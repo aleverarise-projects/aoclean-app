@@ -1,11 +1,15 @@
 import { decorate, observable } from 'mobx';
 
 class Store {
-  test = 111;
+  isLogin = false;
+
+  setMethods(field, value) {
+    this[field] = value;
+  }
 }
 
 decorate(Store, {
-  test: observable,
+  isLogin: observable,
 });
 
 export default new Store();

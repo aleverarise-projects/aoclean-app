@@ -2,6 +2,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { observer } from 'mobx-react';
+import Store from './src/store/Store';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -16,8 +17,8 @@ const App = observer(() => {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        {/* <SignInStack /> */}
-        <TabStack />
+        {!Store.isLogin && <SignInStack />}
+        {Store.isLogin && <TabStack />}
       </NavigationContainer>
     </PaperProvider>
   );

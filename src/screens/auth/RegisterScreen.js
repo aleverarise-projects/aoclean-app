@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
+import { observer } from 'mobx-react';
+import Store from '../../store/Store';
+
 import { IconButton, Avatar, Card, Title, Button } from 'react-native-paper';
 import InputPasswordComponent from '../../components/inputs/InputPasswordComponent';
 import InputEmailComponent from '../../components/inputs/InputEmailComponent';
 import InputTextComponent from '../../components/inputs/InputTextComponent';
 import InputPhoneComponent from '../../components/inputs/InputPhoneComponent';
 
-const RegisterScreen = ({ navigation: { goBack, navigate } }) => {
+const RegisterScreen = observer(({ navigation: { goBack, navigate } }) => {
   return (
     <SafeAreaView>
       <IconButton icon="arrow-left" size={20} onPress={() => goBack()} />
@@ -88,7 +91,7 @@ const RegisterScreen = ({ navigation: { goBack, navigate } }) => {
                 dark
                 style={styles.buttonRegister}
                 mode="contained"
-                onPress={() => console.log('Pressed')}>
+                onPress={() => Store.setMethods('isLogin', true)}>
                 Unirse
               </Button>
             </Card.Content>
@@ -97,7 +100,7 @@ const RegisterScreen = ({ navigation: { goBack, navigate } }) => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+});
 
 export default RegisterScreen;
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import NewRequestScreen from '../screens/NewRequestScreen';
 import { theme } from '../config/theme';
 import TabHomeStack from './stacks/TabHomeStack';
 import TabProfileStack from './stacks/TabProfileStack';
 import TabSearchStack from './stacks/TabSearchStack';
 import TabWalletStack from './stacks/TabWalletStack';
+import TabNewRequestStack from './stacks/TabNewRequestStack';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -43,7 +43,7 @@ function TabStack() {
       />
       <Tab.Screen
         name="NewRequest"
-        component={NewRequestScreen}
+        component={TabNewRequestStack}
         options={{
           tabBarLabel: 'Nuevo',
           tabBarColor: theme.colors.accent,

@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
+import { observer } from 'mobx-react';
+import Store from '../../store/Store';
+
 import { IconButton, Avatar, Card, Title, Button } from 'react-native-paper';
 import InputPasswordComponent from '../../components/inputs/InputPasswordComponent';
 import InputEmailComponent from '../../components/inputs/InputEmailComponent';
 
-const LoginScreen = ({ navigation: { goBack, navigate } }) => {
+const LoginScreen = observer(({ navigation: { goBack, navigate } }) => {
   return (
     <SafeAreaView>
       <IconButton icon="arrow-left" size={20} onPress={() => goBack()} />
@@ -61,7 +64,7 @@ const LoginScreen = ({ navigation: { goBack, navigate } }) => {
                 dark
                 style={styles.buttonLogin}
                 mode="contained"
-                onPress={() => navigate('Login')}>
+                onPress={() => Store.setMethods('isLogin', true)}>
                 Ingresar
               </Button>
 
@@ -78,7 +81,7 @@ const LoginScreen = ({ navigation: { goBack, navigate } }) => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+});
 
 export default LoginScreen;
 
